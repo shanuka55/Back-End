@@ -18,7 +18,12 @@ public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long productId;
+
     private String name;
     private double price;
     private int stock;
+
+    @OneToMany(mappedBy = "product")
+    @JsonIgnore
+    private List<Order> orders;
 }
